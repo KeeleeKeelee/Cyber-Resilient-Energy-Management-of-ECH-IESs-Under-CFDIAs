@@ -1,5 +1,5 @@
 function model = dc_workload_flexibility_model()
-%DC_WORKLOAD_FLEXIBILITY_MODEL  Spatiotemporal computing-workload flexibility
+%   Spatiotemporal computing-workload flexibility
 %   model of the data centres (DCs) used in the ECH-IES day-ahead dispatch.
 %
 %% ---------------------------------------------------------------- horizon
@@ -21,7 +21,7 @@ D_cap = N .* mu .* U_max;
 
 %% ------------------------------------------------------- computing demands
 % Interactive demand of the computing service, per interval.
-Lambda_icw_total = 40000;                       % peak interactive demand [task/s]
+Lambda_icw_total = 40000;                       % peak interactive demand
 icw_shape = [0.60 0.55 0.52 0.50 0.55 0.65 ...
              0.80 0.95 1.00 1.00 0.95 0.90 ...
              0.88 0.90 0.92 0.95 1.00 1.00 ...
@@ -31,8 +31,8 @@ Lambda_icw = Lambda_icw_total * icw_shape;
 % Total number of batch tasks to be completed over the whole horizon.
 Lambda_bcw = 5e9;
 
-%% ------------------------------------------------ linear constraint blocks
-% Variable ordering of the stacked workload vector z
+%% ------------------------------------------------ constraint blocks
+% Variable ordering of the stacked workload vector
 nz    = 2 * n_dc * T;
 blk   = 2 * n_dc;
 i_icw = @(t) (t-1)*blk + (1:n_dc);
