@@ -92,7 +92,6 @@ model.response = @response;
 
 %% ------------------------------------------------------------- DC response
     function [P_IT, U] = response(D_icw, D_bcw)
-        % Eqs. (3) and (2).  Workload in task/s, power returned in kW.
         U    = (D_icw + D_bcw) ./ (N(:) .* mu(:));
         P_IT = N(:) .* (P_idle(:) + (P_peak(:) - P_idle(:)) .* U) * 1e-3;
     end
